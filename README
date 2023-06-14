@@ -2,3 +2,6 @@ Stokely Diamantis
 CMPT 276 - Assignment 2
 June 13, 2023
 
+I opted to use my primary app view (/students/view) as the primary method for user interaction, providing a simple 'Edit' and 'Delete' button on each student entry accordingly.  The main 'Add New Student' button is floated at the bottom, a design decision I would rethink in the future - as I ran out of time to implement my planned dynamic grid of Student records, I opted instead to roll back to a stable iteration that uses a single column.
+
+As with the prompt, weight and height are represented by box width and height respectively.  These values are scaled up with an error margin added, so that the smallest possible values will not break the layout.  Overall, this scaling could definitely use some fine tuning.  Student hair colors are likewise respresented by the text color of the student name field.
