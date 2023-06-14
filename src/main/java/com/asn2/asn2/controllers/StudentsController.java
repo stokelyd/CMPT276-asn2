@@ -38,8 +38,8 @@ public class StudentsController {
         return "redirect:add.html";
     }
 
-    // @GetMapping("/edit")
-    // public String addNewUser(Model model){
+    // @PostMapping("/students/edit")
+    // public String editUser(Model model){
     //     // System.out.println("Getting all students");
     //     return "redirect:add.html";
     // }
@@ -47,19 +47,12 @@ public class StudentsController {
     @PostMapping("/students/add")
     public String addUser(@RequestParam Map<String, String> newStudent, HttpServletResponse response){
         System.out.println("ADD student");
-        // String newName = newuser.get("name");
-        // String newPwd = newuser.get("password");
-        // int newSize = Integer.parseInt(newuser.get("size"));
 
         String newName = newStudent.get("name"); 
         int newWeight = Integer.parseInt(newStudent.get("weight"));
         int newHeight = Integer.parseInt(newStudent.get("height"));
         String newHairColor = newStudent.get("hairColor"); 
-
         int newGPA = Math.round(10 * Float.parseFloat(newStudent.get("GPA")));
-        // int newGPA = Integer.parseInt(newStudent.get("GPA"));
-        // float newGPA = Float.parseFloat(newStudent.get("GPA"));
-        
         String newMajor = newStudent.get("major");
 
         studentRepo.save(new Student(newName,newWeight,newHeight,newHairColor,newGPA,newMajor));
@@ -68,13 +61,25 @@ public class StudentsController {
         return "redirect:view";
     }
 
-    @PostMapping("/students/edit")
+    @PostMapping("/students/update")
     public String editUser(@RequestParam Map<String, String> newStudent, HttpServletResponse response){
         // TODO: update given user entry in db
-        System.out.println("Trying to edit user...");
+        
+        System.out.println("Trying to update user...");
         System.out.println("at uid=" + newStudent.get("uid"));
 
-        // studentRepo.
+        List<Student> students = studentRepo.findByUid(Integer.parseInt(newStudent.get("uid")));
+        Student student = students.get(0);
+
+        System.out.println(student.getName());
+        System.out.println(student.getUid());
+
+        student.setName("Test 2");
+        System.out.println(student.getName());
+
+        studentRepo.save(student);
+        System.out.println(student.getUid());
+
         return "redirect:view";
     }
 
