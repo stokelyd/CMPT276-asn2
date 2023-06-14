@@ -27,17 +27,17 @@
 
                     <div class="col-md-6">
                         <label for="height" class="form-label">Height (cm)</label>
-                        <input type="number" class="form-control" id="height" name="height" min="1" max="120" th:value="${st.height}" required>
+                        <input type="number" class="form-control" id="height" name="height" min="36" max="120" th:value="${st.height}" required>
                         <div class="invalid-feedback">
-                            Please provide a valid height (1 - 120in)
+                            Please provide a valid height (36 - 120in)
                         </div>
                     </div>
 
                     <div class="col-md-6">
                         <label for="weight" class="form-label">Weight</label>
-                        <input type="number" class="form-control" id="weight" name="weight" min="1" max="1500" th:value="${st.weight}" required>
+                        <input type="number" class="form-control" id="weight" name="weight" min="30" max="1500" th:value="${st.weight}" required>
                         <div class="invalid-feedback">
-                            Please provide a valid weight (1 - 1500lbs)
+                            Please provide a valid weight (30 - 1500lbs)
                         </div>
                     </div>
 

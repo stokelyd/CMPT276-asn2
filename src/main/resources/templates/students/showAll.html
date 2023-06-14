@@ -16,11 +16,11 @@
                 <div class="col-md-12">
                     <h1 class="ms=2">STUDENTS:</h1>
                     <div>
-
                         <div>
+                            <!-- Box scaling logic occuring in th:styleappend -->
                             <div th:each="student, iStat:${st}" 
                                 class="studentViewBox mt-2 ms-1"
-                                th:styleappend="'width: ' + ${student.weight + 100} + 'px; height: ' + ${student.height + 100} +'px'">
+                                th:styleappend="'width: ' + ${(student.weight*2) + 120} + 'px; height: ' + ${(student.height*2) + 50} +'px'">
                                 
                                 <span th:text="${student.name}" th:style="'color:'+ ${student.hairColor}" class="studentName ms-1"></span><br>
                                 <span th:text="${student.major} + ' / '+ ${(0.0 + student.GPA) / 10} + ' GPA'" class="ms-1"></span>
