@@ -23,7 +23,7 @@
                                 <span th:text="'GPA: '+ ${(0.0 + student.GPA) / 10}"></span><br>
                                 <span th:text="'Major: '+${student.major}"></span><br>
 
-                                <form action="/students/update" method="post">
+                                <form action="/students/edit" method="post">
                                     <div class="removedFromFlow">
                                         <input type="text" id="uid" name="uid" th:value="${student.uid}" required>
                                     </div>
