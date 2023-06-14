@@ -26,17 +26,17 @@
 
                     <div class="col-md-6">
                         <label for="height" class="form-label">Height (cm)</label>
-                        <input type="number" class="form-control" id="height" name="height" min="0" th:value="${st.height}" required>
+                        <input type="number" class="form-control" id="height" name="height" min="1" max="120" th:value="${st.height}" required>
                         <div class="invalid-feedback">
-                            Please provide a valid height
+                            Please provide a valid height (1 - 120in)
                         </div>
                     </div>
 
                     <div class="col-md-6">
                         <label for="weight" class="form-label">Weight</label>
-                        <input type="number" class="form-control" id="weight" name="weight" min="0" th:value="${st.weight}" required>
+                        <input type="number" class="form-control" id="weight" name="weight" min="1" max="1500" th:value="${st.weight}" required>
                         <div class="invalid-feedback">
-                            Please provide a valid weight
+                            Please provide a valid weight (1 - 1500lbs)
                         </div>
                     </div>
 
@@ -56,6 +56,12 @@
                             <option>Biology</option>
                             <option>Physics</option>
                             <option>Chemistry</option>
+                            <option>Music</option>
+                            <option>History</option>
+                            <option>Philosophy</option>
+                            <option>Engineering</option>
+                            <option>Business</option>
+                            <option>Eucation</option>
                         </select>
 
                         <div class="invalid-feedback">
@@ -67,9 +73,17 @@
                         <label for="hairColor" class="form-label">Hair Color</label>
                         <select class="form-select" id="hairColor" name="hairColor" required>
                             <option th:value="${st.hairColor}" th:text="${st.hairColor}" selected></option>
+                            <option>Black</option>
+                            <option>Brown</option>
+                            <option>Blond</option>
+                            <option>White</option>
                             <option>Red</option>
-                            <option>Blue</option>
+                            <option>Orange</option>
+                            <option>Yellow</option>
                             <option>Green</option>
+                            <option>Blue</option>
+                            <option>Indigo</option>
+                            <option>Violet</option>
                         </select>
 
                         <div class="invalid-feedback">
