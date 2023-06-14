@@ -11,7 +11,7 @@ public class Student {
     private String name;
     private int weight;
     private int height;
-    private String hairColor; // NOTE: to be VARCHAR(7) #rrggbb hex color format
+    private String hairColor;
     private int GPA; // NOTE: internal representation of 1-digit decimal precision
     private String major;
     
