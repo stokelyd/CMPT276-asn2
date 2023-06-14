@@ -16,32 +16,26 @@
                     <h1>STUDENTS:</h1>
                     <div class="container-fluid">
                         <div class="row">
-                            <div th:each="student, iStat:${st}" class="col-sm-1 d-inline-block studentViewBox">
+                            <div th:each="student, iStat:${st}" 
+                                class="col-sm-2 d-inline-block studentViewBox">
+
+                                <span th:text="${student.name}" th:style="'color:'+ ${student.hairColor}"></span><br>
+                                <span th:text="'GPA: '+ ${(0.0 + student.GPA) / 10}"></span><br>
+                                <span th:text="'Major: '+${student.major}"></span><br>
 
                                 <form action="/students/edit" method="post">
                                     <div class="removedFromFlow">
                                         <input type="text" id="uid" name="uid" th:value="${student.uid}" required>
                                     </div>
-                                    <button class="btn btn-secondary d-inline-block" type="submit" value="SEND"
-                                        th:text="${student.name}"></button>
+                                    <button class="btn btn-outline-dark d-inline-block" type="submit" value="SEND">EDIT</button>
                                 </form>
                                 <form action="/students/delete" method="post">
                                     <div class="removedFromFlow">
                                         <input type="text" id="uid" name="uid" th:value="${student.uid}" required>
                                     </div>
-                                    <button class="btn d-inline-block" type="submit" value="SEND">DELETE</button>
+                                    <button class="btn d-inline-block btn-outline-danger" type="submit" value="SEND">DELETE</button>
                                 </form>
-
                             </div>
-                            <!-- <div th:each="student, iStat:${st}" 
-                                class="d-inline-block studentViewBox" 
-                                th:style="'border-color:'+${student.hairColor}"
-                                th:classappend="col-sm-1">
-                                <span 
-                                    th:text="${student.name}">
-                                </span>    
-                                <span th:text="${iStat.count/4}"></span>
-                            </div> -->
                         </div>
                     </div>
 
@@ -83,6 +77,7 @@
                 <button class="btn btn-secondary btn-md" type="submit" value="SEND">DELETE</button>
             </div>
         </form>
+        
     </main>
 </body>
 </html>

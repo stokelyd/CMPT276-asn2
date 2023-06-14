@@ -38,6 +38,12 @@ public class StudentsController {
         return "redirect:add.html";
     }
 
+    // @GetMapping("/edit")
+    // public String addNewUser(Model model){
+    //     // System.out.println("Getting all students");
+    //     return "redirect:add.html";
+    // }
+
     @PostMapping("/students/add")
     public String addUser(@RequestParam Map<String, String> newStudent, HttpServletResponse response){
         System.out.println("ADD student");
@@ -74,13 +80,9 @@ public class StudentsController {
 
     @PostMapping("/students/delete")
     public String deleteUser(@RequestParam Map<String, String> newStudent, HttpServletResponse response){
-        // TODO: update given user entry in db
-        System.out.println("Trying to delete user...");
-        System.out.println("at uid=" + newStudent.get("uid"));
-
-        // TODO: uid instead
-        // List<Student> students = studentRepo.findByName("Dave");
-        // studentRepo.delete(students.get(0));
+        // Delete given user entry in db
+        // System.out.println("Trying to delete user...");
+        // System.out.println("at uid=" + newStudent.get("uid"));
 
         List<Student> students = studentRepo.findByUid(Integer.parseInt(newStudent.get("uid")));
         studentRepo.delete(students.get(0));
