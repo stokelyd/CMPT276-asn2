@@ -25,6 +25,7 @@ public class StudentsController {
     @GetMapping("/students/view")
     public String getAllUsers(Model model){
         // get all users from database
+        
         List<Student> students = studentRepo.findAll();
 
         model.addAttribute("st", students);
