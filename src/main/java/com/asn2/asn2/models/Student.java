@@ -12,7 +12,7 @@ public class Student {
     private int weight;
     private int height;
     private String hairColor;
-    private int GPA; // NOTE: internal representation of 1-digit decimal precision
+    private int GPA;  // NOTE: internal representation of 1-digit decimal precision
     private String major;
     
     public Student() { 

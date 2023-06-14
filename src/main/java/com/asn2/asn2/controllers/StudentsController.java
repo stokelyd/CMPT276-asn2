@@ -62,10 +62,11 @@ public class StudentsController {
         return "redirect:view";
     }
 
-    @PostMapping("/students/update")
+    @PostMapping("/students/edit")
     public String editUser(@RequestParam Map<String, String> newStudent, HttpServletResponse response){
         // TODO: update given user entry in db
-        System.out.println("Trying to update user...");
+        System.out.println("Trying to edit user...");
+        System.out.println("at uid=" + newStudent.get("uid"));
 
         // studentRepo.
         return "redirect:view";
@@ -75,14 +76,16 @@ public class StudentsController {
     public String deleteUser(@RequestParam Map<String, String> newStudent, HttpServletResponse response){
         // TODO: update given user entry in db
         System.out.println("Trying to delete user...");
+        System.out.println("at uid=" + newStudent.get("uid"));
 
+        // TODO: uid instead
+        // List<Student> students = studentRepo.findByName("Dave");
+        // studentRepo.delete(students.get(0));
 
-        // List<Student> students = studentRepo.findAll();
-        List<Student> students = studentRepo.findByName("Dave");
-
+        List<Student> students = studentRepo.findByUid(Integer.parseInt(newStudent.get("uid")));
         studentRepo.delete(students.get(0));
-
-        // studentRepo.
+        
+        // return "students/showAll";
         return "redirect:view";
     }
 }

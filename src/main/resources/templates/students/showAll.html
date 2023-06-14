@@ -16,15 +16,32 @@
                     <h1>STUDENTS:</h1>
                     <div class="container-fluid">
                         <div class="row">
-                            <div th:each="student, iStat:${st}" 
+                            <div th:each="student, iStat:${st}" class="col-sm-1 d-inline-block studentViewBox">
+
+                                <form action="/students/edit" method="post">
+                                    <div class="removedFromFlow">
+                                        <input type="text" id="uid" name="uid" th:value="${student.uid}" required>
+                                    </div>
+                                    <button class="btn btn-secondary d-inline-block" type="submit" value="SEND"
+                                        th:text="${student.name}"></button>
+                                </form>
+                                <form action="/students/delete" method="post">
+                                    <div class="removedFromFlow">
+                                        <input type="text" id="uid" name="uid" th:value="${student.uid}" required>
+                                    </div>
+                                    <button class="btn d-inline-block" type="submit" value="SEND">DELETE</button>
+                                </form>
+
+                            </div>
+                            <!-- <div th:each="student, iStat:${st}" 
                                 class="d-inline-block studentViewBox" 
                                 th:style="'border-color:'+${student.hairColor}"
                                 th:classappend="col-sm-1">
                                 <span 
                                     th:text="${student.name}">
                                 </span>    
-                                <!-- <span th:text="${iStat.count/4}"></span> -->
-                            </div>
+                                <span th:text="${iStat.count/4}"></span>
+                            </div> -->
                         </div>
                     </div>
 
